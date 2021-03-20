@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: ./
+    image: mega-mailer:latest
+    restart: unless-stopped
+    ports:
+      - '8000:8000'
+    environment:
+      - APP_web.address=0.0.0.0
+      - APP_web.static_path=/opt/mega-mailer
+      - RUST_LOG=trace
+      - RUST_BACKTRACE=1
+
