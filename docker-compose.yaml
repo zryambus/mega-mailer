@@ -1,10 +1,8 @@
 version: '3'
 
 services:
-  server:
-    build:
-      context: ./
-    image: mega-mailer:latest
+  web_server:
+    image: 'ivolchenkov/mega-mailer-web-server'
     restart: unless-stopped
     ports:
       - '8000:8000'
@@ -13,4 +11,10 @@ services:
       - APP_web.static_path=/opt/mega-mailer
       - RUST_LOG=trace
       - RUST_BACKTRACE=1
+  telegram_bot:
+    image: 'ivolchenkov/mega-mailer-telegram-bot'
+    restart: unless-stopped
+  mail_checker:
+    image: 'ivolchenkov/mega-mailer-mail-checker'
+    restart: unless-stopped
 
