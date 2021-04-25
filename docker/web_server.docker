@@ -9,6 +9,7 @@ COPY --from=ws /opt/mega-mailer/web_server /opt/mega-mailer/
 COPY --from=ws /opt/mega-mailer/config.yaml /opt/mega-mailer
 COPY --from=ui /opt/mega-mailer/build /opt/mega-mailer/static
 COPY --from=ui /opt/mega-mailer/index.html /opt/mega-mailer/static
+COPY --from=ui /opt/mega-mailer/mail.svg /opt/mega-mailer/static
 
 EXPOSE 8000
 
