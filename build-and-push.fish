@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/fish
 
 cd mega-mailer-src
 ./build.fish
