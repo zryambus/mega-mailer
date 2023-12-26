@@ -1,11 +1,8 @@
-FROM mail_checker as mc
-
 FROM alpine
 
 RUN apk add ca-certificates
 
-COPY --from=mc /opt/mega-mailer/mail_checker /opt/mega-mailer/
-COPY --from=mc /opt/mega-mailer/config.yaml /opt/mega-mailer
+COPY target/x86_64-unknown-linux-musl/release/mail_checker /opt/mega-mailer/
 
 WORKDIR /opt/mega-mailer
 CMD ["/opt/mega-mailer/mail_checker", "2>&1"]

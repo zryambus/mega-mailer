@@ -1,12 +1,11 @@
-FROM web_server:latest as ws
 FROM mega-mailer-ui:latest as ui
 
 FROM alpine
 
 RUN apk add ca-certificates
 
-COPY --from=ws /opt/mega-mailer/web_server /opt/mega-mailer/
-COPY --from=ws /opt/mega-mailer/config.yaml /opt/mega-mailer
+COPY target/x86_64-unknown-linux-musl/release/web_server /opt/mega-mailer/
+
 COPY --from=ui /opt/mega-mailer/dist /opt/mega-mailer/static
 COPY --from=ui /opt/mega-mailer/mail.svg /opt/mega-mailer/static
 

@@ -4,17 +4,17 @@ services:
   web_server:
     image: 'ivolchenkov/mega-mailer-web-server'
     restart: unless-stopped
+    volumes:
+      - ./config.yaml:/opt/mega-mailer/config.yaml
     ports:
       - '8000:8000'
-    environment:
-      - APP_web.address=0.0.0.0
-      - APP_web.static_path=/opt/mega-mailer
-      - RUST_LOG=info
-      - RUST_BACKTRACE=1
   telegram_bot:
     image: 'ivolchenkov/mega-mailer-telegram-bot'
     restart: unless-stopped
+    volumes:
+      - ./config.yaml:/opt/mega-mailer/config.yaml
   mail_checker:
     image: 'ivolchenkov/mega-mailer-mail-checker'
     restart: unless-stopped
-
+    volumes:
+      - ./config.yaml:/opt/mega-mailer/config.yaml

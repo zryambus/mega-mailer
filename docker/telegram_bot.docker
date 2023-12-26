@@ -1,11 +1,8 @@
-FROM telegram_bot as tb
-
 FROM alpine
 
 RUN apk add ca-certificates
 
-COPY --from=tb /opt/mega-mailer/telegram_bot /opt/mega-mailer/
-COPY --from=tb /opt/mega-mailer/config.yaml /opt/mega-mailer
+COPY target/x86_64-unknown-linux-musl/release/telegram_bot /opt/mega-mailer/
 
 WORKDIR /opt/mega-mailer
 CMD ["/opt/mega-mailer/telegram_bot", "2>&1"]

@@ -1,8 +1,4 @@
-#!/usr/bin/fish
-
-cd mega-mailer-src
-./build.fish
-cd ..
+cross build --release --target=x86_64-unknown-linux-musl
 
 cd mega-mailer-ui
 docker build -t mega-mailer-ui .
