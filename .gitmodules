@@ -1,6 +1,6 @@
 [submodule "mega-mailer-src"]
 	path = mega-mailer-src
-	url = git@gogs.ddosya.ml:ramb/mega-mailer-src.git
+	url = git@github.com:zryambus/mega-mailer-src.git
 [submodule "mega-mailer-ui"]
 	path = mega-mailer-ui
-	url = git@gogs.ddosya.ml:ramb/mega-mailer-ui.git
+	url = git@github.com:zryambus/mega-mailer-ui.git
