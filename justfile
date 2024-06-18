@@ -21,4 +21,4 @@ publish: build-docker
 
 deploy:
     @echo "Run on server {{deploy_script}}"
-    ssh root@ddosya.tk -p 51822 "{{deploy_script}}"
+    ssh root@89.208.103.184 -p 51822 "{{deploy_script}}"
